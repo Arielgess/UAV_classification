@@ -7,7 +7,7 @@ This was the final project of my Masters degree, advised by Dr. Alon Kipnis.\
 Its goal was to classify flying objects (bird, airplane, UAV or static) with specific attention to detecting unmanned aerial vehicles (UAVs).\
 The data at our disposal is the flight trajectories data of the objects, extracted from a tracking device.\
 The project included an initial phase of processing and feature extraction for evaluating baseline methods (DT, RF, XGB, SVM, MLP).\
-The main focus though was using a generative Mamba model to create class-specific predictions and classify an object by error comparison.\
+The main focus though was using a generative Mamba model to create class-specific predictions and classify an object by error comparison.
 
 ## The Notebooks
 To review the project I recommend going through its stages as follows:
