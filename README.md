@@ -12,7 +12,7 @@ The main focus though was using a generative Mamba model to create class-specifi
 ## The Notebooks
 To review the project I recommend going through its stages as follows:
 - Read the report at: [`Final_Project___UAV_classification_with_Mamba`](Final_Project___UAV_classification_with_Mamba.pdf)
-- Review the ['Basic EDA and Dataset Analysis - full.ipynb'](Basic EDA and Dataset Analysis - full.ipynb) notebook and the ['preprocessing and visualization'](Preprocessing and Visualization - full.ipynb) notebook for familiarity with the data
+- Review the ['EDA']([Basic EDA and Dataset Analysis - full.ipynb](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Basic%20EDA%20and%20Dataset%20Analysis%20-%20full.ipynb)) notebook and the ['preprocessing and visualization'](Preprocessing and Visualization - full.ipynb) notebook for familiarity with the data
 - Review the main version of ['preprocessing'](\Mamba Preprocessing\Preprocessing for Mamba.ipynb)
 - Evaluate the results obtained with the best feature-based models: RF, XGB
 - Explore the adjusted Mamba model
