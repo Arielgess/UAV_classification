@@ -10,6 +10,7 @@ The project included an initial phase of processing and feature extraction for e
 The main focus though was using a generative Mamba model to create class-specific predictions and classify an object by error comparison.
 
 ## The Notebooks
+The project's notebooks were used in a google colab environment and are presented here as is.\
 To review the project I recommend going through its stages as follows:
 - Read the [report](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Final_Project___UAV_classification_with_Mamba.pdf)
 - Review the [EDA](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Basic%20EDA%20and%20Dataset%20Analysis%20-%20full.ipynb) notebook and the [Preprocessing and Visualization](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Preprocessing%20and%20Visualization%20-%20full.ipynb) notebook for familiarity with the data
