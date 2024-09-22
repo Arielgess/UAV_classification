@@ -19,6 +19,6 @@ To review the project I recommend going through its stages as follows:
 - Compare [baseline methods' results](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Analysis%20and%20plotting/feature_extraction_results_analysis%20full%20Mamba%20compatible%20-%20ALL.ipynb)
 - Explore the adjusted [Mamba model](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Mamba%20Model.ipynb)
 - Follow a [Mamba model training](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Mamba%20Training/Mamba%20UAV%20training.ipynb) process
-- See the [classification](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Mamba%20Classification/Mamba_Classification%20combinations%20optimization.ipynb) method and results
+- See the [Mamba classification](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Mamba%20Classification/Mamba_Classification%20combinations%20optimization.ipynb) method and results
 
 Enjoy!
