@@ -16,7 +16,7 @@ To review the project I recommend going through its stages as follows:
 - Review the main version of [preprocessing](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Mamba%20Preprocessing/Preprocessing%20for%20Mamba.ipynb)
 - Evaluate feature extraction and results from the best feature-based models: [RF](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Baseline%20Models%20Training/UAV%20project%20full%20RF%20all%20lengths%20Mamba%20compatible%20dataset.ipynb), [XGB](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Baseline%20Models%20Training/UAV%20project%20full%20XGB%20all%20lengths%20Mamba%20compatible%20dataset.ipynb)
 - Explore the adjusted [Mamba model](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Mamba%20Model.ipynb)
-- Follow a Mamba model training process
+- Follow a [Mamba model training](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Mamba%20Training/Mamba%20UAV%20training.ipynb) process
 - See the classification method
 - Evaluate the final results
 
