@@ -13,7 +13,7 @@ The main focus though was using a generative Mamba model to create class-specifi
 To review the project I recommend going through its stages as follows:
 - Read the [report](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Final_Project___UAV_classification_with_Mamba.pdf)
 - Review the [EDA](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Basic%20EDA%20and%20Dataset%20Analysis%20-%20full.ipynb) notebook and the [Preprocessing and Visualization](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Preprocessing%20and%20Visualization%20-%20full.ipynb) notebook for familiarity with the data
-- Review the main version of ['preprocessing'](\Mamba Preprocessing\Preprocessing for Mamba.ipynb)
+- Review the main version of [preprocessing](https://github.com/ayalaraanan/UAV_classification_with_Mamba/blob/main/Mamba%20Preprocessing/Preprocessing%20for%20Mamba.ipynb)
 - Evaluate the results obtained with the best feature-based models: RF, XGB
 - Explore the adjusted Mamba model
 - Follow a Mamba model training process
