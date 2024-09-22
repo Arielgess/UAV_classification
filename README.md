@@ -10,7 +10,7 @@ The project included an initial phase of processing and feature extraction for e
 The main focus though was using a generative Mamba model to create class-specific predictions and classify an object by error comparison. 
 
 To review the project I recommend going through its stages as follows:
-- Read the report at: [`PAMAP2_data_statistics.ipynb`](PAMAP2_data_statistics.ipynb)
+- Read the report at: [`Final_Project___UAV_classification_with_Mamba`](Final_Project___UAV_classification_with_Mamba.pdf)
 - Review the EDA notebook and the preprocessing and visualization notebook for familiarity with the data
 - Review the main version of preprocessing
 - Evaluate the results obtained with the best feature-based models: RF, XGB
