@@ -1,4 +1,4 @@
-# UAV_classification_with_Mamba
+# UAV classification with Mamba
 
 ## Abstract
 
