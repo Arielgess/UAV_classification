@@ -9,10 +9,11 @@ The data at our disposal is the flight trajectories data of the objects, extract
 The project included an initial phase of processing and feature extraction for evaluating baseline methods (DT, RF, XGB, SVM, MLP).
 The main focus though was using a generative Mamba model to create class-specific predictions and classify an object by error comparison. 
 
+## The Notebooks
 To review the project I recommend going through its stages as follows:
 - Read the report at: [`Final_Project___UAV_classification_with_Mamba`](Final_Project___UAV_classification_with_Mamba.pdf)
-- Review the EDA notebook and the preprocessing and visualization notebook for familiarity with the data
-- Review the main version of preprocessing
+- Review the ['EDA'](Basic EDA and Dataset Analysis - full.ipynb) notebook and the ['preprocessing and visualization'](Preprocessing and Visualization - full.ipynb) notebook for familiarity with the data
+- Review the main version of ['preprocessing'](\Mamba Preprocessing\Preprocessing for Mamba.ipynb)
 - Evaluate the results obtained with the best feature-based models: RF, XGB
 - Explore the adjusted Mamba model
 - Follow a Mamba model training process
