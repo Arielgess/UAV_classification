@@ -32,7 +32,7 @@ class CVKalmanFilter:
             initial_state_covariance=P0,
         )
 
-    def _project_R_to_diag(self, rmin=1e-6, rmax=10) -> np.ndarray:
+    def _project_R_to_diag(self, rmin=1e-5, rmax=10) -> np.ndarray:
         R = self.kf.observation_covariance
         R = 0.5 * (R + R.T)
         d = np.clip(np.diag(R), rmin, rmax)
@@ -88,7 +88,10 @@ class CVKalmanFilter:
                 else:
                     vx0_hat = 0
                     vy0_hat = 0
-                x0 = np.array([measurements[0, 0], 0, measurements[0, 1], 0])
+                if self.dim == 3:
+                    x0 = np.array([measurements[0, 0], 0, measurements[0, 1], 0, measurements[0, 2], 0])
+                else:
+                    x0 = np.array([measurements[0, 0], 0, measurements[0, 1], 0])
                 self.kf.initial_state_mean = x0
                 self.kf = self.kf.em(measurements, n_iter=1, em_vars=vars_to_estimate)
 
