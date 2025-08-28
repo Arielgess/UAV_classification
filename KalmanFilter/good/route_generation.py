@@ -106,12 +106,12 @@ def generate_cv_with_micro_velocity_changes(
     trajectories = []
     for _ in range(number_of_trajectories):
         v0 = (rng.uniform(-4, 4, size=dim) if v is None else as_vec(v, "v"))
-        x0v = (rng.uniform(0, 4, size=dim) if x0 is None else as_vec(x0, "x0"))
+        x0 = (rng.uniform(0, 4, size=dim) if x0 is None else as_vec(x0, "x0"))
 
         clean = np.empty((T, dim), dtype=float)
-        vel   = np.empty((T, dim), dtype=float)
+        vel = np.empty((T, dim), dtype=float)
 
-        clean[0] = x0v
+        clean[0] = x0
         vel[0]   = v0
 
         # step-by-step evolution with white acceleration
@@ -130,7 +130,8 @@ def generate_cv_with_micro_velocity_changes(
     return trajectories
 
 
-def generate_ca_trajectory(T, dt, dim=3, a=None, v0=None, x0=None, measurement_noise_std=None, seed=None):
+def generate_ca_trajectory(T, dt, dim=3, a=None, v=None, x_start=None, measurement_noise_std=None, seed=None,
+                           number_of_trajectories:int = 1):
     """
     Generate a constant-velocity trajectory with additive Gaussian noise.
     The noise is added only AFTER the trajectory is calculated
@@ -147,37 +148,58 @@ def generate_ca_trajectory(T, dt, dim=3, a=None, v0=None, x0=None, measurement_n
     Returns:
         traj_noisy (np.ndarray): shape (T, 3) noisy positions.
     """
+    def as_vec(x, name):
+        if isinstance(x, (int, float)):
+            return np.full(dim, float(x))
+        x = np.asarray(x, dtype=float)
+        if x.ndim == 0:
+            return np.full(dim, float(x))
+        assert x.shape == (dim,), f"{name} must be length {dim}"
+        return x
+
     assert dim in (2, 3), "dim must be 1, 2 or 3"
     rng = np.random.default_rng(seed)
+    trajectories = []
+    for _ in range(number_of_trajectories):
+        v0 = (rng.uniform(-4, 4, size=dim) if v is None else as_vec(v, "v"))
+        x0 = (rng.uniform(0, 4, size=dim) if x_start is None else as_vec(x_start, "x_start"))
+        a = (rng.uniform(-2, 2, size=dim) if a is None else as_vec(x0, "x0"))
 
-    #Setting the acceleration
-    a = np.zeros(dim, dtype=float) if a is None else np.asarray(a, dtype=float)
+        clean = np.empty((T, dim), dtype=float)
+        vel = np.empty((T, dim), dtype=float)
 
-    #Setting the speed
-    v0 = np.zeros(dim, dtype=float) if v0 is None else np.asarray(v0, dtype=float)
+        clean[0] = x0
+        vel[0] = v0
 
-    #Setting initial state
-    x0 = np.zeros(dim, dtype=float) if x0 is None else np.asarray(x0, dtype=float)
+        #Setting the acceleration
+        a = np.zeros(dim, dtype=float) if a is None else np.asarray(a, dtype=float)
 
-    #Generate noise std vector
-    if measurement_noise_std is None:
-        measurement_noise_std = np.zeros(dim, dtype=float)
-    else:
-        measurement_noise_std = np.asarray(measurement_noise_std, dtype=float)
-        if measurement_noise_std.ndim == 0:
-            measurement_noise_std = np.full(dim, float(measurement_noise_std))
+        #Setting the speed
+        v0 = np.zeros(dim, dtype=float) if v0 is None else np.asarray(v0, dtype=float)
 
-    #represents the equation: x = x0 + v0*t + 0.5*a*t^2 (at time t)
-    #Using broadcastin here
-    t = np.arange(T, dtype=float) * dt
-    t = t.reshape(T, 1)
-    x0 = x0.reshape(1, -1)
-    v0 = v0.reshape(1, -1)
-    a = a.reshape(1, -1)
-    clean = x0 + v0*t + 0.5 * a * t**2
+        #Setting initial state
+        x0 = np.zeros(dim, dtype=float) if x0 is None else np.asarray(x0, dtype=float)
 
-    # additive Gaussian noise per time & axis
-    noise = rng.normal(loc=0.0, scale=measurement_noise_std[None, :], size=(T, dim))
-    noisy = clean + noise
+        #Generate noise std vector
+        if measurement_noise_std is None:
+            measurement_noise_std = np.zeros(dim, dtype=float)
+        else:
+            measurement_noise_std = np.asarray(measurement_noise_std, dtype=float)
+            if measurement_noise_std.ndim == 0:
+                measurement_noise_std = np.full(dim, float(measurement_noise_std))
 
-    return noisy, clean
+        #represents the equation: x = x0 + v0*t + 0.5*a*t^2 (at time t)
+        #Using broadcastin here
+        t = np.arange(T, dtype=float) * dt
+        t = t.reshape(T, 1)
+        x0 = x0.reshape(1, -1)
+        v0 = v0.reshape(1, -1)
+        a = a.reshape(1, -1)
+        clean = x0 + v0*t + 0.5 * a * t**2
+
+        # additive Gaussian noise per time & axis
+        noise = rng.normal(loc=0.0, scale=measurement_noise_std[None, :], size=(T, dim))
+        noisy = clean + noise
+        trajectories.append((noisy, clean))
+
+    return trajectories
